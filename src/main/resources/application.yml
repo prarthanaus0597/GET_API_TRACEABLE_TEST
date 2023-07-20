@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:localhost:3306}/${DB_NAME:admin_schema}?useSSL=false
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    hikari:
+      initialization-fail-timeout: 0
+
+  application:
+    name: admin_end
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+server:
+  port: 8082
+  servlet:
+    context-path: /patient_end
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+#cms_service:
+#  base:
+#    url: ${CMS:http://localhost:8084}/cms_end
+
